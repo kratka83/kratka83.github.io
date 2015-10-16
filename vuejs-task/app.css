@@ -1,0 +1,38 @@
+h1 {
+	margin-bottom: 40px;
+}
+.container {
+	width: 350px; 
+}
+
+.remain, .complete {
+	margin-top: 50px;
+}
+
+#tasks {
+	margin: 4em 0;
+}
+
+li {
+	background-color: #FAFAFA !important;
+}
+
+li button {
+	font-weight: bold;
+	background: none;
+	border: 0;
+	color: red;
+	padding: 0;
+	float: right;
+	margin-left: 10px;
+}
+
+p.links {
+	margin-top: 200px;
+	font-size: 85%;
+	color: #888;
+}
+
+p.links a {
+	color: #888;
+}
