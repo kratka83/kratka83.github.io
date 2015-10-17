@@ -5,12 +5,8 @@ h1 {
 	width: 350px;
 }
 
-.remain {
+.remain, .complete {
 	margin-top: 50px;
-}
-
-.complete {
-	margin-top: 60px;
 }
 
 #tasks {
