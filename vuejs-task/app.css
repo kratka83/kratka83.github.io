@@ -2,11 +2,15 @@ h1 {
 	margin-bottom: 40px;
 }
 .container {
-	width: 350px; 
+	width: 350px;
 }
 
-.remain, .complete {
+.remain {
 	margin-top: 50px;
+}
+
+.complete {
+	margin-top: 60px;
 }
 
 #tasks {
@@ -21,14 +25,26 @@ li button {
 	font-weight: bold;
 	background: none;
 	border: 0;
-	color: red;
 	padding: 0;
 	float: right;
 	margin-left: 10px;
 }
 
+.red {
+	color: #ff0000;
+}
+
+.green {
+	color: #00BC2F;
+}
+
+.btn {
+	float:right;
+}
+
+
 p.links {
-	margin-top: 200px;
+	margin-top: 100px;
 	font-size: 85%;
 	color: #888;
 }
