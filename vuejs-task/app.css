@@ -9,21 +9,56 @@ h1 {
 	margin-top: 50px;
 }
 
+.complete {
+  opacity: 0.5;
+  transition: opacity .5s ease-out;
+}
+
+.complete:hover {
+  opacity: 1;
+  transition: opacity .3s ease-in;
+}
+
 #tasks {
 	margin: 4em 0;
 }
 
 li {
 	background-color: #FAFAFA !important;
+  animation: fadein .5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+button:hover {
+  transition: background-color .2s ease-in;
+}
+
+button {
+  transition: background-color .2s ease-in;
 }
 
 li button {
 	font-weight: bold;
+  font-size: 16px;
 	background: none;
 	border: 0;
-	padding: 0;
+	padding: 1px;
 	float: right;
 	margin-left: 10px;
+  opacity: .6;
+  transition: opacity .3s ease-out;
+  border: 1px solid none;
+  border-radius: 30px;
+}
+
+li button:hover {
+  opacity: 1;
+  transition: opacity .2s ease-in;
+  background-color: #fff;
 }
 
 .red {
