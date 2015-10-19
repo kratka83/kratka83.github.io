@@ -42,7 +42,8 @@ new Vue ({
 			if ( ! this.newTask ) return;
 			this.tasks.push({
 				body: this.newTask,
-				completed: false
+				completed: false,
+        date: new Date()
 			});
 			this.newTask = '';
 		},
