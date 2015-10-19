@@ -29,7 +29,7 @@
             <ol class="list-group">
                 <li v-repeat="task in tasks | inProcess"
                     class="list-group-item"
-                    title="{{ task.date }}">
+                    title="{{ task.date | dateFormat }}">
                 <span v-on="dblclick: editTask(task)">{{ task.body }}</span>
                 <button v-on="click: removeTask(task)"
                         class="red"

@@ -43,7 +43,7 @@ new Vue ({
 			this.tasks.push({
 				body: this.newTask,
 				completed: false,
-        date: new Date()
+        date: (new Date()).toLocaleString()
 			});
 			this.newTask = '';
 		},
