@@ -73,6 +73,9 @@ li button:hover {
 	float:right;
 }
 
+.date {
+  color: #888;
+}
 
 p.links {
 	margin-top: 100px;

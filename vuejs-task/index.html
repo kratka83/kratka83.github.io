@@ -5,6 +5,30 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="app.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <script>
+  $(function() {
+    $( ".list-group" )
+      .accordion({ //TODO new task
+        header: "h5",
+        collapsible: true,
+        active: 20
+      })
+      .sortable({
+        axis: "y",
+        handle: "h5",
+        stop: function( event, ui ) {
+          // IE doesn't register the blur when sorting
+          // so trigger focusout handlers to remove .ui-state-focus
+          ui.item.children( "h5" ).triggerHandler( "focusout" );
+ 
+          // Refresh accordion to handle new order
+          $( this ).accordion( "refresh" );
+        }
+      });
+  });
+  </script>
 </head>
 <body>
 
@@ -28,15 +52,17 @@
             <h4>Tasks ({{ remaining.length }})</h4>
             <ol class="list-group">
                 <li v-repeat="task in tasks | inProcess"
-                    class="list-group-item"
-                    title="{{ task.date | dateFormat }}">
-                <span v-on="dblclick: editTask(task)">{{ task.body }}</span>
-                <button v-on="click: removeTask(task)"
-                        class="red"
-                        title="remove">&#10007;</button>
-                <button v-on="click: toggleTaskCompletion(task)"
-                        class="green"
-                        title="complete">&#10004;</button>
+                    class="list-group-item">
+                <h5>
+                  <span v-on="dblclick: editTask(task)">{{ task.body }}</span>
+                  <button v-on="click: removeTask(task)"
+                          class="red"
+                          title="remove">&#10007;</button>
+                  <button v-on="click: toggleTaskCompletion(task)"
+                          class="green"
+                          title="complete">&#10004;</button>
+                </h5>
+                <div class="date">{{ task.date }}</div>
                 </li>
             </ol>
             <button v-if="remaining.length > 1"
@@ -53,6 +79,7 @@
                 <li v-repeat="task in tasks | filterBy true in 'completed'"
                     class="list-group-item"
                     title="{{ task.date }}">
+                <h5>
                     {{ task.body }}
                     <button v-on="click: removeTask(task)"
                             class="red"
@@ -60,6 +87,8 @@
                     <button v-on="click: toggleTaskCompletion(task)"
                             class="green"
                             title="uncomplete">&#11119;</button>
+                </h5>
+                <div class="date">{{ task.date }}</div>
                 </li>
             </ol>
             <button v-if="completions.length > 1"
@@ -72,6 +101,7 @@
         <!-- pre>{{ $data | json }}</pre -->
 
         <p class="links text-center">
+            Try one click, double click, and drag!<br/>
             <a href="https://github.com/kratka83/kratka83.github.io/tree/master/vuejs-task">github</a>
         </p>
     </div>
